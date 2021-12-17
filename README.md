@@ -30,6 +30,14 @@ A partir da pasta principal do repo local **Implementação Projeto Vector** fa�
 cmake -S source -B build
 cmake --build build
 ```
+Logo após a compilação, para executar os testes gerado use os comandos:
+
+No linux:
+
+```
+cd build
+make run_tests
+```
 
 ## Usando compilação manual com g++
 
@@ -37,20 +45,16 @@ cmake --build build
 
 ```
 mkdir -p build
-g++ -Wall -std=c++11 -pedantic source/core/*.cpp source/libs/coms.cpp -I source/core -I source/libs -o build/bcr
+g++ -Wall -std=c++11 -I source/include -I source/tmanager_lib source/tests/main.cpp source/tmanager_lib/test_manager.cpp -o build/run_tests
 ```
 
-## Executando
-
-Independente do procedimento utilizado para compilar, será gerado um executável com o nome `bcr` dentro da pasta `build`. No __windows__ esse executável fica na pasta `Debug`.
-
-Logo após a compilação, para executar o programa gerado use os comandos:
+Logo após a compilação, para executar os testes gerado use os comandos:
 
 No linux:
 ```
-./build/bcr data/cities.txt
+./build/run_tests
 ```
 No windows:
 ```
-.\Debug\bcr.exe data/cities.txt
+.\Debug\run_tests.exe
 ```
